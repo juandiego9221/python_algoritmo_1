@@ -9,6 +9,7 @@ TAMBIEN SE PUEDE HACER DE FUNCIONES LAMBDA
 """
 from functools import reduce
 import pandas as pd
+import numpy as np
 
 # aList = ["jhon", 33, "thronto", True]
 # print(aList)
@@ -117,12 +118,43 @@ red={"fire hydrant","rose","leaves"}
 """
 DATAFRAME
 ESTRUCTURA DE DATOS PARA ALMACER DATA EN FORMA DE TABLA , DISPOBIVLE EN EL PAQUETE PANDAS, USADO PARA PROCESA DATA ESTRCUTURADA DE MANERA TRADICIONAL
+AXIS , ES UNA SOLA COLUMNA O FILA DE UN DATAFREME
+AXES , CONJUNTOS DE AXIS
+LABEL , NOMBRE DE LA COLUMNA , O FILA
+
+SE PUEDE CREAR UN SUBSET DE LA TABLA YA SEA HACIENDO UNA SELECCION DE COLUMNA O SELECCION DE FILA
+
 """
 df=pd.DataFrame([
-        ["1","Juan"],
-        ["2","Elena"],
-        ["3","Steven"]
+        ["1","Juan",32,True],
+        ["2","Elena",23,False],
+        ["3","Steven",40,True]
 
     ])
-df.columns=["id","name"]
+df.columns=["id","name","age","decision"]
 print(df)
+print("xxxxxxxxxxxxx")
+
+#SELECCION DE COLUMNA
+print(df[["name","age"]])
+
+print(df.iloc[:,3])
+print(df.iloc[:,2])
+print(df.iloc[:,0])
+
+print("xxxxxxxxxxxxx")
+#SELECCION DE FILA
+
+print(df.iloc[1:3,:])
+print(df[(df.age<35)&(df.decision==True)])
+
+"""
+MATRIX
+"""
+myMatrix=np.array([[11,12,13],[21,22,23],[31,32,33]])
+print(myMatrix)
+print(myMatrix.transpose())
+
+
+
+
